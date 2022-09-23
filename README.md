@@ -23,14 +23,14 @@ It stops the server from sending specific packets to other players that notify t
 - Overwrites /msg command, so you cannot be messaged by other players
 - Settings file
 
-# Usage:
-- "/vanish" toggle vanish on yourself
-- "/vanish all" / "/vanish all true" vanishes all players
-- "/vanish all false" unvanishes all players
-- "/vanish &lt;target&gt;" toggle vanish on target
-- "/vanish &lt;target&gt; &lt;true/false&gt;" set vanish on target
-- "/vanish reload" reloads settings file
-- "/vanish list" lists the vanished players
+# Usage: (LuckPerm, command, definition)
+- `vanish.vanish` "/vanish" toggle vanish on yourself
+- `vanish.all` "/vanish all" / "/vanish all true" vanishes all players
+- `vanish.all` "/vanish all false" unvanishes all players
+- `vanish.target` "/vanish &lt;target&gt;" toggle vanish on target
+- `vanish.target` "/vanish &lt;target&gt; &lt;true/false&gt;" set vanish on target
+- `vanish.reload` "/vanish reload" reloads settings file
+- `vanish.list` "/vanish list" lists the vanished players
 
 # Download
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/vanish)
