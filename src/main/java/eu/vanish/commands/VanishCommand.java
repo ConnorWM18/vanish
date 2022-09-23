@@ -10,6 +10,7 @@ import eu.vanish.data.FakeTranslatableTextContent;
 import eu.vanish.data.Settings;
 import eu.vanish.data.VanishedList;
 import eu.vanish.data.VanishedPlayer;
+import eu.vanish.mixinterface.IPlayerEntityMixin;
 import net.minecraft.block.entity.CommandBlockBlockEntity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -131,6 +132,8 @@ public final class VanishCommand {
         });
 
         sendFakePlayerListEntry(vanishingPlayer);
+				
+				((IPlayerEntityMixin)vanishingPlayer).updateSleeping();
 
         vanishingPlayer.networkHandler.sendPacket(new GameMessageS2CPacket(Text.literal("You are now Vanished").formatted(Formatting.GREEN), true));
 
@@ -161,6 +164,8 @@ public final class VanishCommand {
         });
 
         removeFakePlayerListEntry(vanishingPlayer);
+				
+				((IPlayerEntityMixin)vanishingPlayer).updateSleeping();
 
         vanishingPlayer.networkHandler.sendPacket(new GameMessageS2CPacket(Text.literal("You are no longer Vanished").formatted(Formatting.RED), true));
 
@@ -206,6 +211,8 @@ public final class VanishCommand {
             });
 
             sendFakePlayerListEntry(player);
+				
+						((IPlayerEntityMixin)player).updateSleeping();
 
             player.networkHandler.sendPacket(new GameMessageS2CPacket(Text.literal("You are now Vanished").formatted(Formatting.GREEN), true));
 
@@ -242,6 +249,8 @@ public final class VanishCommand {
                 });
 
                 removeFakePlayerListEntry(player);
+				
+								((IPlayerEntityMixin)player).updateSleeping();
 
                 player.networkHandler.sendPacket(new GameMessageS2CPacket(Text.literal("You are no longer Vanished").formatted(Formatting.RED), true));
 

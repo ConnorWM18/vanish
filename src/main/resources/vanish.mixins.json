@@ -18,7 +18,10 @@
         "PlayerManagerMixin",
         "ServerMetadataMixin",
         "ServerPlayNetworkHandlerMixin",
-        "ServerWorldMixin"
+        "ServerWorldMixin",
+				"PlayerEntityMixin",
+				"SleepManagerMixin",
+				"SleepManagerMixin"
     ],
     "injectors": {
         "defaultRequire": 1

@@ -3,6 +3,7 @@
 Playing around and adding additional features for my server.  
 Added features:
  - LuckPerms support
+ - Sleeping mechanics behave as if player has left
 
 # Vanish
 Vanish is a simple mod for Fabric servers admins.
