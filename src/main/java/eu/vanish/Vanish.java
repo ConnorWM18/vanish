@@ -18,6 +18,8 @@ import static net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.S
 public enum Vanish {
     INSTANCE;
 
+    public static final String PERMISSION_PREFIX = "vanish.";
+		
     private boolean active = false;
 
     public VanishedList vanishedPlayers;

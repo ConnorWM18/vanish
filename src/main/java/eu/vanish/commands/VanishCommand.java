@@ -28,6 +28,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
+import me.lucko.fabric.api.permissions.v0.Permissions;
+
 import static com.mojang.brigadier.arguments.BoolArgumentType.bool;
 import static com.mojang.brigadier.arguments.BoolArgumentType.getBool;
 import static net.minecraft.command.argument.EntityArgumentType.*;
@@ -53,26 +55,31 @@ public final class VanishCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register((
                 literal("vanish")
-                        .requires(source -> sourceIsCommandblock(source) || source.hasPermissionLevel(4))
+                        .requires(source -> sourceIsCommandblock(source) || source.hasPermissionLevel(4) || Permissions.check(source, Vanish.PERMISSION_PREFIX + "vanish", 4))
                         .executes(context -> toggleVanish(context.getSource().getPlayer())))
                 .then((
                         argument("target", player())
+																.requires(Permissions.require(Vanish.PERMISSION_PREFIX + "target", 4))
                                 .executes(context -> toggleVanish(getPlayer(context, "target"))))
                         .then(argument("on", bool())
                                 .executes(context -> toggleVanish(getPlayer(context, "target"), getBool(context, "on")))))
                 .then((
                         argument("targets", players())
+																.requires(Permissions.require(Vanish.PERMISSION_PREFIX + "targets", 4))
                                 .executes(context -> toggleVanish(getPlayers(context, "targets"))))
                         .then(argument("on", bool())
                                 .executes(context -> toggleVanish(getPlayers(context, "targets"), getBool(context, "on")))))
                 .then((
                         literal("all")
+																.requires(Permissions.require(Vanish.PERMISSION_PREFIX + "all", 4))
                                 .executes(context -> vanishAllToggle(context.getSource(), true)))
                         .then(argument("on", bool())
                                 .executes(context -> vanishAllToggle(context.getSource(), getBool(context, "on")))))
                 .then((literal("reload")
+												.requires(Permissions.require(Vanish.PERMISSION_PREFIX + "reload", 4))
                         .executes(context -> reloadSettings(context.getSource()))))
                 .then((literal("list")
+												.requires(Permissions.require(Vanish.PERMISSION_PREFIX + "list", 4))
                         .executes(context -> listVanishedPlayers(context.getSource()))))
         );
     }

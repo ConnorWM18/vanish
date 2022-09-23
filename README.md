@@ -1,6 +1,8 @@
 # Forked from [this repo!](https://github.com/123456687548/vanish)
 
-Playing around and adding additional features for my server.  Currently nothing here qwp
+Playing around and adding additional features for my server.  
+Added features:
+ - LuckPerms support
 
 # Vanish
 Vanish is a simple mod for Fabric servers admins.
